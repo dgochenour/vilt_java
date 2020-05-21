@@ -121,8 +121,10 @@ public class ShapeTypeExtendedSubscriber {
             String typeName = ShapeTypeExtendedTypeSupport.get_type_name(); 
             ShapeTypeExtendedTypeSupport.register_type(participant, typeName);
 
+            // SESSION #1 - change Topic name from "Example ShapeTypeExtended"
+            // to "Square" so we can interoperate with Shapes Demo            
             topic = participant.create_topic(
-                "Example ShapeTypeExtended",
+                "Square",
                 typeName, DomainParticipant.TOPIC_QOS_DEFAULT,
                 null /* listener */, StatusKind.STATUS_MASK_NONE);
             if (topic == null) {

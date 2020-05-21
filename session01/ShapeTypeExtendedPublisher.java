@@ -122,8 +122,10 @@ public class ShapeTypeExtendedPublisher {
             String typeName = ShapeTypeExtendedTypeSupport.get_type_name();
             ShapeTypeExtendedTypeSupport.register_type(participant, typeName);
 
+            // SESSION #1 - change Topic name from ""Example ShapeTypeExtended"
+            // to "Square" so we can interoperate with Shapes Demo
             topic = participant.create_topic(
-                    "Example ShapeTypeExtended",
+                    "Square",
                     typeName, 
                     DomainParticipant.TOPIC_QOS_DEFAULT,
                     null /* listener */, 
@@ -148,12 +150,20 @@ public class ShapeTypeExtendedPublisher {
 
             InstanceHandle_t instance_handle = InstanceHandle_t.HANDLE_NIL;
 
-            final long sendPeriodMillis = 4 * 1000; // 4 seconds
+            // SESSION #1 - change time between sends from 4s to 2s
+            final long sendPeriodMillis = 2 * 1000;
 
             for (int count = 0; (sampleCount == 0) || (count < sampleCount); ++count) {
                 System.out.println("Writing ShapeTypeExtended, count " + count);
 
                 /* Modify the instance to be written here */
+
+                // SESSION #1 - populate the sample with some values, just so 
+                // we aren't writing an "empty" sample
+                instance.x = (count * 10) % 100;
+                instance.y = (count * 10) % 100;
+                instance.shapesize = 40;
+                instance.color = "CYAN";
 
                 /* Write data */
                 writer.write(instance, instance_handle);
