@@ -30,3 +30,9 @@ Session #2a
     - Time-based filter
     
 Session #2b
+
+  - We added the file MY_QOS_PROFILES.xml by:
+    - Copying USER_QOS_PROFILES.xml
+    - Re-naming the qos_library and qos_profile to "My_*"
+    - removing the inheritance and is_default_qos from the profile in both QoS files
+  - Modify the publisher and subscriber to create DDS entities from a QoS profile

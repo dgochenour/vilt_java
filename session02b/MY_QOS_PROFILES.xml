@@ -1,0 +1,96 @@
+
+
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="/Applications/rti_connext_dds-6.0.1/resource/schema/rti_dds_qos_profiles.xsd">
+    <!-- QoS Library containing the QoS profile used in the generated example.
+
+        A QoS library is a named set of QoS profiles.
+    -->
+    <qos_library name="My_Library">
+
+        <!-- QoS profile used to configure reliable communication between the DataWriter 
+             and DataReader created in the example code.
+
+             A QoS profile groups a set of related QoS.
+        -->
+        <qos_profile name="My_Profile">
+            <!-- QoS used to configure the data writer created in the example code -->                
+            <datawriter_qos>
+                <!-- SESSION #2a - use a unique publication_name -->
+                <publication_name>
+                    <name>Don's exampleDataWriter</name>
+                </publication_name>
+                <!-- SESSION #2a - explicitly specify reliability-->
+                <reliability>
+                    <kind>RELIABLE_RELIABILITY_QOS</kind>
+                    <!--kind>BEST_EFFORT_RELIABILITY_QOS</kind-->
+                </reliability> 
+                <!-- SESSION #2a - add durability -->
+                <durability>
+                    <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+                </durability>
+                <!-- SESSION #2a - make history depth 15 -->
+                <history>
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                    <depth>15</depth>
+                </history>
+                <!-- SESSION #2a - add deadline -->
+                <deadline>
+                    <period>
+                        <sec>0</sec>
+                        <nanosec>500000000</nanosec>
+                    </period>
+                </deadline>                 
+            </datawriter_qos>
+
+            <!-- QoS used to configure the data reader created in the example code -->                
+            <datareader_qos>
+                <!-- SESSION #2a - use a unique subscription_name -->
+                <subscription_name>
+                    <name>Don's exampleDataReader</name>
+                </subscription_name>
+                <!-- SESSION #2a - explicitly specify reliability-->
+                <reliability>
+                    <kind>RELIABLE_RELIABILITY_QOS</kind>
+                </reliability>   
+                <!-- SESSION #2a - add durability -->
+                <durability>
+                    <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+                </durability>
+                <!-- SESSION #2a - make history depth 15 -->
+                <history>
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                    <depth>15</depth>
+                </history>
+                <!-- SESSION #2a - add deadline -->
+                <deadline>
+                    <period>
+                        <sec>2</sec>
+                        <nanosec>0</nanosec>
+                    </period>
+                </deadline>
+                <!-- SESSION #2a - add TBF -->
+                <time_based_filter>
+                    <minimum_separation>
+                        <sec>1</sec>
+                        <nanosec>0</nanosec>
+                    </minimum_separation>
+                </time_based_filter>                                  
+            </datareader_qos>
+            <participant_qos>
+                <!--
+                The participant name, if it is set, will be displayed in the
+                RTI tools, making it easier for you to tell one
+                application from another when you're debugging.
+                -->
+                <!-- SESSION #2a - use a unique participant_name -->
+                <participant_name>
+                    <name>Don's exampleParticipant</name>
+                    <role_name>exampleParticipantRole</role_name>
+                </participant_name>
+
+            </participant_qos>
+        </qos_profile>
+
+    </qos_library>
+</dds>
