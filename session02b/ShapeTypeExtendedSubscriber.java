@@ -235,6 +235,14 @@ public class ShapeTypeExtendedSubscriber {
                 ShapeTypeExtendedReader.return_loan(_dataSeq, _infoSeq);
             }
         }
+
+        // SESSION #2b - implement on_requested_deadline_missed
+        public void on_requested_deadline_missed(
+                DataReader reader,
+                RequestedDeadlineMissedStatus status) 
+	    {
+            System.out.println("ReaderListener: on_requested_deadline_missed()");
+        } 
     }
 }
 
