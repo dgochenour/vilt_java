@@ -65,17 +65,22 @@
                 <!-- SESSION #2a - add deadline -->
                 <deadline>
                     <period>
-                        <sec>2</sec>
+                        <sec>1</sec>
                         <nanosec>0</nanosec>
                     </period>
                 </deadline>
-                <!-- SESSION #2a - add TBF -->
-                <time_based_filter>
+                <!-- 
+                    SESSION #2a - Add TBF. Note that this will interact with
+                    Durability (possibly preventing some historical samples from 
+                    being received) and Deadline. You probably would not use 
+                    a TBF and Deadline on the same reader
+                -->
+                <!--time_based_filter>
                     <minimum_separation>
                         <sec>1</sec>
                         <nanosec>0</nanosec>
                     </minimum_separation>
-                </time_based_filter>                                  
+                </time_based_filter-->                                  
             </datareader_qos>
             <participant_qos>
                 <!--
