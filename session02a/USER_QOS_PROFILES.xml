@@ -156,12 +156,12 @@ XML" chapter in the RTI Connext DDS Core Libraries User's Manual.
                     <depth>15</depth>
                 </history>
                 <!-- SESSION #2a - add deadline -->
-                <deadline>
+                <!--deadline>
                     <period>
                         <sec>0</sec>
                         <nanosec>500000000</nanosec>
                     </period>
-                </deadline>                 
+                </deadline-->                 
             </datawriter_qos>
 
             <!-- QoS used to configure the data reader created in the example code -->                
@@ -184,12 +184,12 @@ XML" chapter in the RTI Connext DDS Core Libraries User's Manual.
                     <depth>15</depth>
                 </history>
                 <!-- SESSION #2a - add deadline -->
-                <deadline>
+                <!--deadline>
                     <period>
                         <sec>2</sec>
                         <nanosec>0</nanosec>
                     </period>
-                </deadline>
+                </deadline-->
                 <!-- SESSION #2a - add TBF -->
                 <time_based_filter>
                     <minimum_separation>
