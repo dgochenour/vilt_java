@@ -198,7 +198,7 @@ public class ShapeTypeExtendedPublisher {
                 writer.write(instance, instance_handle);
 
                 // SESSION #3 - wait for ACKs before proceeding
-                //writer.wait_for_acknowledgments(Duration_t.DURATION_INFINITE);
+                writer.wait_for_acknowledgments(Duration_t.DURATION_INFINITE);
 
                 try {
                     Thread.sleep(sendPeriodMillis);
