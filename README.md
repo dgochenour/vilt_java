@@ -45,4 +45,18 @@ Session #03
   -  Speed up the writer so that we are actually hitting the deadlines... 500ms
   -  Add code in publisher to wait for acknowledgements
     - discuss the delay and then fix in QoS
-    
+
+Session #04 
+
+ - Modify the Subscriber-code listener ShapeTypeExtendedListener.on_data_available()
+    - use shapes demo to publish a new instance (like BLUE squares)
+        - the DataReader listener should report this 
+    - subsequent samples from the same instance will not cause the banner to print, but new instnaces will
+
+Session #05 
+
+ - No changes
+
+Session #06
+
+ - 
