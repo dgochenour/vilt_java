@@ -35,12 +35,12 @@
                     <depth>15</depth>
                 </history>
                 <!-- SESSION #2a - add deadline -->
-                <deadline>
+                <!--deadline>
                     <period>
                         <sec>0</sec>
                         <nanosec>500000000</nanosec>
                     </period>
-                </deadline>
+                </deadline-->
                 <!-- SESSION #3 - increase HB frequency -->
                 <protocol>	
                     <rtps_reliable_writer>
@@ -82,12 +82,12 @@
                     <depth>15</depth>
                 </history>
                 <!-- SESSION #2a - add deadline -->
-                <deadline>
+                <!--deadline>
                     <period>
                         <sec>1</sec>
                         <nanosec>0</nanosec>
                     </period>
-                </deadline>
+                </deadline-->
                 <!-- 
                     SESSION #2a - Add TBF. Note that this will interact with
                     Durability (possibly preventing some historical samples from 

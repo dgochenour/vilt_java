@@ -67,6 +67,7 @@ import com.rti.dds.infrastructure.*;
 import com.rti.dds.subscription.*;
 import com.rti.dds.topic.*;
 import com.rti.ndds.config.*;
+import java.util.*;
 
 public class ShapeTypeExtendedSubscriber {
 
@@ -156,13 +157,43 @@ public class ShapeTypeExtendedSubscriber {
             if (topic == null) {
                 System.err.println("create_topic error\n");
                 return;
-            }                    
+            }
+            
+            // SESSION #6a - create ContentFilteredTopic OPTION 1: 
+            //               filter on string contents
+
+            StringSeq parameters = new StringSeq(); // leave empty in this case
+            String filter_expression = new String("color = 'ORANGE'");
+            ContentFilteredTopic cft = null;
+            cft = participant.create_contentfilteredtopic(
+                    "MyContentFilteredTopic", 
+                    topic, 
+                    filter_expression,
+                    parameters);          
+                    
+            // SESSION #6a - create ContentFilteredTopic OPTION 2: 
+            //               filter on member values using parameters
+
+            // List<String> param_list = new ArrayList<String>();
+            // param_list.add(0, "75");
+            // param_list.add(1, "150");
+
+            // StringSeq parameters = new StringSeq(param_list);
+            
+            // String filter_expression = new String("x >= %0 and x <= %1");
+            // ContentFilteredTopic cft = null;
+            // cft = participant.create_contentfilteredtopic(
+            //         "MyContentFilteredTopic", 
+            //         topic, 
+            //         filter_expression,
+            //         parameters);         
 
             listener = new ShapeTypeExtendedListener();
 
             // SESSION #2b - create DataReader with profile
+            // SESSION #6a - change Topic from 'topic' to 'cft'
             reader = (ShapeTypeExtendedDataReader)subscriber.create_datareader_with_profile(
-                    topic, 
+                    cft, //topic, 
                     "My_Library",
                     "My_Profile",
                     listener,
