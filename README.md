@@ -48,18 +48,22 @@ Session #03
 
 Session #04 
 
- - Modify the Subscriber-code listener ShapeTypeExtendedListener.on_data_available()
+  - Modify the Subscriber-code listener ShapeTypeExtendedListener.on_data_available()
     - use shapes demo to publish a new instance (like BLUE squares)
         - the DataReader listener should report this 
     - subsequent samples from the same instance will not cause the banner to print, but new instnaces will
 
 Session #05 
 
- - No changes
+  - No changes
 
 Session #06a
 
- - remove Deadline and Time Based Filter from MY_QOS_PROFILE.xml
- - implement sting-filtering and integer-filtering options of CFT in the subscriber
- - use a Shapes Demo instance to test that the filtering works
+  - remove Deadline and Time Based Filter from MY_QOS_PROFILE.xml
+  - implement sting-filtering and integer-filtering options of CFT in the subscriber
+  - use a Shapes Demo instance to test that the filtering works
 
+Session #06b
+
+  - Modify the Subscriber code so imcoming data is handled with a WaitSet instead of a listener
+  - use Shapes Demo to show that data is received properly (don't forget about the CFT!) 
