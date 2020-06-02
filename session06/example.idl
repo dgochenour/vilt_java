@@ -1,0 +1,27 @@
+
+struct ShapeType {
+    @key string<128> color;
+    //@ID 0
+    long x;    //@ID 1
+    long y;    //@ID 2
+    long shapesize;    //@ID 3
+};
+//@Extensibility EXTENSIBLE_EXTENSIBILITY
+
+enum ShapeFillKind {
+    @default_literal
+    SOLID_FILL = 0,
+    TRANSPARENT_FILL = 1,
+    HORIZONTAL_HATCH_FILL = 2,
+    VERTICAL_HATCH_FILL = 3
+};
+//@Extensibility EXTENSIBLE_EXTENSIBILITY
+
+struct ShapeTypeExtended : ShapeType {
+    ShapeFillKind fillKind;    //@ID 4
+    @min(-3.4E38)
+    @max(3.4E38)
+    float angle;    //@ID 5
+};
+//@Extensibility EXTENSIBLE_EXTENSIBILITY
+
