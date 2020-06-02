@@ -57,6 +57,9 @@ Session #05
 
  - No changes
 
-Session #06
+Session #06a
 
- - 
+ - remove Deadline and Time Based Filter from MY_QOS_PROFILE.xml
+ - implement sting-filtering and integer-filtering options of CFT in the subscriber
+ - use a Shapes Demo instance to test that the filtering works
+
